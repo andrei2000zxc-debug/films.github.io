@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Black Player</title>
+    <style>
+        body { margin: 0; background: #000; height: 100vh; display: flex; align-items: center; justify-content: center; }
+        video { width: 100%; max-height: 100vh; outline: none; background: #000; }
+    </style>
+</head>
+<body>
+    <video id="v" controls autoplay playsinline>
+        <source src="" type="video/mp4">
+    </video>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const file = urlParams.get('file');
+        if (file) {
+            const v = document.getElementById('v');
+            v.querySelector('source').src = decodeURIComponent(file);
+            v.load();
+        }
+    </script>
+</body>
+</html>
